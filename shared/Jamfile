@@ -1,0 +1,5 @@
+SubDir TOP shared ;
+
+Library shared :
+	SambaContext.cpp
+	;

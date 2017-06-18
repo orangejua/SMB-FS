@@ -1,0 +1,20 @@
+SubDir TOP assistant ;
+
+LINKLIBS  on SMB-FS_Assistant = -lbe -lsmbclient -l$(LIBSTDC++) ;
+LINKFLAGS on SMB-FS_Assistant = -Xlinker -soname="_APP_" ;
+
+SubDirHdrs [ FDirName $(TOP) shared ] ;
+
+Main SMB-FS_Assistant :
+	Assistant.cpp
+	main.cpp
+	TreeNode.cpp
+	;
+
+LinkLibraries SMB-FS_Assistant :
+	shared
+	;
+
+AddResources SMB-FS_Assistant :
+	SMB-FS_Assistant.rdef
+	;

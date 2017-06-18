@@ -1,0 +1,18 @@
+SubDir TOP file_system ;
+
+LINKLIBS  on SMB-FS = -lbe -luserlandfs_haiku_kernel -lsmbclient -lbnetapi -l$(LIBSTDC++) ;
+LINKFLAGS on SMB-FS = -Xlinker --no-undefined -shared -Xlinker -soname="smb_fs" ;
+
+SubDirHdrs [ FDirName $(TOP) shared ] ;
+
+Main SMB-FS :
+	kernel_interface.cpp
+	Volume.cpp
+	;
+
+LinkLibraries SMB-FS :
+	nodes
+	shared
+	;
+
+SubInclude TOP file_system nodes ;

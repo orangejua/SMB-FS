@@ -1,0 +1,13 @@
+resource app_signature "application/x-vnd.haiku-SMB-FS-Assistant";
+
+resource app_flags B_SINGLE_LAUNCH | B_BACKGROUND_APP;
+
+resource app_version {
+	major = 1,
+	middle = 0,
+	minor = 0,
+	variety = 0,
+	internal = 0,
+	short_info = "SMB-FS Assistant",
+	long_info = "SMB-FS add-on's heroical sidekick"
+};

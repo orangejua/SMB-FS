@@ -1,0 +1,30 @@
+if $(GCC2H) = 1 {
+	# gcc 2.95 doesn't support C99, so we have to use C++
+	CC  = g++ ;
+	C++ = g++ ;
+
+	# Will get warnings from libsmbclient, so can't use Werror here
+	CCFLAGS  = -O2 -Wall -Wno-multichar -g ;
+	C++FLAGS = -O2 -Wall -Wno-multichar -g ;
+
+	LIBSTDC++ = stdc++.r4 ;
+} else {
+	CC  = gcc ;
+	C++ = g++ ;
+
+	CCFLAGS  = -O2 -Wall -Wextra -Werror -Wno-deprecated-declarations -g ;
+	C++FLAGS = -O2 -Wall -Wextra -Werror -g ;
+
+	LIBSTDC++ = stdc++ ;
+}
+
+if $(DEBUG) = 1 {
+	CCFLAGS  += -g ;
+	C++FLAGS += -g ;
+}
+
+actions AddResources
+{
+	rc -o $(2:S=.rsrc) $(2)
+	xres -o $(1) $(2:S=.rsrc)
+}

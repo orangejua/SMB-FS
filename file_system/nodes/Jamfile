@@ -1,0 +1,12 @@
+SubDir TOP file_system nodes ;
+
+SubDirHdrs [ FDirName $(TOP) file_system ] ;
+SubDirHdrs [ FDirName $(TOP) shared ] ;
+
+Library nodes :
+	DiscoveryNode.cpp
+	Node.cpp
+	ShareDirectoryNode.cpp
+	ShareFileNode.cpp
+	ShareNode.cpp
+	;
